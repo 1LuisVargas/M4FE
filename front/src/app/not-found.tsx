@@ -1,7 +1,7 @@
 const notFound = () => {
     return (
-        <div>
-            <h1>404</h1>
+        <div className="flex justify-center items-center h-screen">
+            <h1 className="text-3xl m-4 text-center">Opps, looks like you tried to reach a page that doesn&apos;t exist. <br />404</h1>
         </div>
     );
 }
