@@ -3,7 +3,7 @@ import NavItems from "@/helpers/NavBarItems";
 
 const NavBar = () => {
     return (
-        <nav className="p-4 bg-slate-400">
+        <nav className="p-4 bg-slate-600">
             <ul className="flex gap-4">
                 <li className="font-bold"><Link href={NavItems.HOME}>Home</Link></li>
                 <li className="font-bold"><Link href={NavItems.DASHBOARD}>Dashboard</Link></li>

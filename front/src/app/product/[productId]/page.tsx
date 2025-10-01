@@ -7,8 +7,8 @@ const productDetails = async ({
 
   return (
     <div>
-      <h1>This is the product page for product:</h1>
-      <p>{productId}</p>
+      <h1 className="text-3xl">This is the product page for product:</h1>
+      <p className="text-2xl">{productId}</p>
     </div>
   );
 };
