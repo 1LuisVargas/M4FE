@@ -2,16 +2,22 @@ import IProduct from "@/interfaces/IProduct";
 import Image from "next/image";
 
 interface IProductCardProps {
-    product: IProduct;
+  product: IProduct;
 }
 
-export default function ProductCard({product}: IProductCardProps) {
+export default function ProductCard({ product }: IProductCardProps) {
   return (
-    <div>
-        <h2>{product.name}</h2>
-        <Image src={product.image} alt={`Image of ${product.name}`} width={300} height={300} />
-        <p>{product.description}</p>
-        <p>{product.price}</p>
-      </div>
+    <div className="flex flex-col items-center">
+      <h2 className="text-center text-xl">{product.name}</h2>
+      <Image
+        className="m-4"
+        src={product.image}
+        alt={`Image of ${product.name}`}
+        width={300}
+        height={300}
+      />
+      <p className="text-s text-center">{product.description}</p>
+      <p className="p-3 text-s text-center">{product.price}</p>
+    </div>
   );
 }
