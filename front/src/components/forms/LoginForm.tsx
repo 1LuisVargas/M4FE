@@ -54,7 +54,7 @@ const LoginForm = () => {
         <p className="text-red-500">{formik.errors.password}</p>
       ) : null}
       <button
-        className=" bg-green-500 rounded-2xl w-1/3 m-2 hover:bg-green-700 font-bold"
+        className="bg-green-500 rounded-2xl w-1/3 m-2 hover:bg-green-700 font-bold"
         type="submit"
         disabled={formik.isSubmitting || !formik.isValid}
       >
