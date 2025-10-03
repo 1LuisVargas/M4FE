@@ -5,11 +5,11 @@
 }
 
 .formInput{
-  @apply p-1 mb-4 mt-2 bg-white rounded-2xl;
+  @apply p-1 m-2 bg-white rounded-2xl;
 }
 
 .formLabel{
-  @apply font-bold;
+  @apply font-bold mt-4;
 }
 
 .formButton{

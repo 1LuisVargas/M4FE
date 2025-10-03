@@ -35,7 +35,7 @@ const LoginForm = () => {
         onChange={formik.handleChange}
       />
       {formik.errors.email ? (
-        <p className="text-red-500">{formik.errors.email}</p>
+        <p className="text-red-500 mb-4">{formik.errors.email}</p>
       ) : null}
       <label className="formLabel" htmlFor="password">
         Password

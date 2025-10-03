@@ -31,7 +31,7 @@ const RegisterForm = () => {
         value={formik.values.email}
         onChange={formik.handleChange}
       />
-      {formik.errors.email ? <p> {formik.errors.email} </p> : null}
+      {formik.errors.email ? <p className="text-red-500"> {formik.errors.email} </p> : null}
       <label className="formLabel" htmlFor="password">Password</label>
       <input
         className="formInput"
@@ -43,7 +43,7 @@ const RegisterForm = () => {
         value={formik.values.password}
         onChange={formik.handleChange}
       />
-      {formik.errors.password ? <p> {formik.errors.password} </p> : null}
+      {formik.errors.password ? <p className="text-red-500"> {formik.errors.password} </p> : null}
       <label className="formLabel" htmlFor="confirmPassword">Confirm Password</label>
       <input
         className="formInput"
@@ -56,7 +56,7 @@ const RegisterForm = () => {
         onChange={formik.handleChange}
       />
       {formik.errors.confirmPassword ? (
-        <p> {formik.errors.confirmPassword} </p>
+        <p className="text-red-500"> {formik.errors.confirmPassword} </p>
       ) : null}
       <label className="formLabel" htmlFor="name">Name</label>
       <input
@@ -69,7 +69,7 @@ const RegisterForm = () => {
         value={formik.values.name}
         onChange={formik.handleChange}
       />
-      {formik.errors.name ? <p> {formik.errors.name} </p> : null}
+      {formik.errors.name ? <p className="text-red-500"> {formik.errors.name} </p> : null}
       <label className="formLabel" htmlFor="address">Address</label>
       <input
         className="formInput"
@@ -81,7 +81,7 @@ const RegisterForm = () => {
         value={formik.values.address}
         onChange={formik.handleChange}
       />
-      {formik.errors.address ? <p> {formik.errors.address} </p> : null}
+      {formik.errors.address ? <p className="text-red-500"> {formik.errors.address} </p> : null}
       <label className="formLabel" htmlFor="phone">Phone number</label>
       <input
         className="formInput"
@@ -93,7 +93,7 @@ const RegisterForm = () => {
         value={formik.values.phone}
         onChange={formik.handleChange}
       />
-      {formik.errors.phone ? <p> {formik.errors.phone} </p> : null}
+      {formik.errors.phone ? <p className="text-red-500"> {formik.errors.phone} </p> : null}
       <button
         className="formButton"
         type="submit"
