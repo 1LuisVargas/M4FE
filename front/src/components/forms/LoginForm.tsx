@@ -18,14 +18,14 @@ const LoginForm = () => {
 
   return (
     <form
-      className="w-1/4 flex flex-col text-center bg-slate-600 p-4 rounded-2xl m-4 items-center"
+      className="form"
       onSubmit={formik.handleSubmit}
     >
-      <label className="text-white font-bold" htmlFor="email">
+      <label className="formLabel" htmlFor="email">
         Email
       </label>
       <input
-        className="p-1 mb-4 mt-2 bg-white rounded-2xl"
+        className="formInput"
         type="email"
         name="email"
         id="email"
@@ -37,11 +37,11 @@ const LoginForm = () => {
       {formik.errors.email ? (
         <p className="text-red-500">{formik.errors.email}</p>
       ) : null}
-      <label className="text-white font-bold" htmlFor="password">
+      <label className="formLabel" htmlFor="password">
         Password
       </label>
       <input
-        className="p-1 mb-4 mt-2 bg-white rounded-2xl"
+        className="formInput"
         type="password"
         name="password"
         id="password"
@@ -54,7 +54,7 @@ const LoginForm = () => {
         <p className="text-red-500">{formik.errors.password}</p>
       ) : null}
       <button
-        className="bg-green-500 rounded-2xl w-1/3 m-2 hover:bg-green-700 font-bold"
+        className="formButton"
         type="submit"
         disabled={formik.isSubmitting || !formik.isValid}
       >

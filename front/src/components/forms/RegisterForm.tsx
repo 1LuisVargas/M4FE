@@ -17,12 +17,12 @@ const RegisterForm = () => {
 
   return (
     <form
-      className="w-1/4 flex flex-col text-center bg-slate-600 p-4 rounded-2xl m-4 items-center"
+      className="form"
       onSubmit={formik.handleSubmit}
     >
-      <label htmlFor="email">Email</label>
+      <label className="formLabel" htmlFor="email">Email</label>
       <input
-        className="p-1 mb-4 mt-2 bg-white rounded-2xl"
+        className="formInput"
         id="email"
         type="string"
         name="email"
@@ -32,9 +32,9 @@ const RegisterForm = () => {
         onChange={formik.handleChange}
       />
       {formik.errors.email ? <p> {formik.errors.email} </p> : null}
-      <label htmlFor="password">Password</label>
+      <label className="formLabel" htmlFor="password">Password</label>
       <input
-        className="p-1 mb-4 mt-2 bg-white rounded-2xl"
+        className="formInput"
         id="password"
         type="password"
         name="password"
@@ -44,9 +44,9 @@ const RegisterForm = () => {
         onChange={formik.handleChange}
       />
       {formik.errors.password ? <p> {formik.errors.password} </p> : null}
-      <label htmlFor="confirmPassword">Confirm Password</label>
+      <label className="formLabel" htmlFor="confirmPassword">Confirm Password</label>
       <input
-        className="p-1 mb-4 mt-2 bg-white rounded-2xl"
+        className="formInput"
         id="confirmPassword"
         type="password"
         name="confirmPassword"
@@ -58,9 +58,9 @@ const RegisterForm = () => {
       {formik.errors.confirmPassword ? (
         <p> {formik.errors.confirmPassword} </p>
       ) : null}
-      <label htmlFor="name">Name</label>
+      <label className="formLabel" htmlFor="name">Name</label>
       <input
-        className="p-1 mb-4 mt-2 bg-white rounded-2xl"
+        className="formInput"
         id="name"
         type="string"
         name="name"
@@ -70,9 +70,9 @@ const RegisterForm = () => {
         onChange={formik.handleChange}
       />
       {formik.errors.name ? <p> {formik.errors.name} </p> : null}
-      <label htmlFor="address">Address</label>
+      <label className="formLabel" htmlFor="address">Address</label>
       <input
-        className="p-1 mb-4 mt-2 bg-white rounded-2xl"
+        className="formInput"
         id="address"
         type="string"
         name="address"
@@ -82,9 +82,9 @@ const RegisterForm = () => {
         onChange={formik.handleChange}
       />
       {formik.errors.address ? <p> {formik.errors.address} </p> : null}
-      <label htmlFor="phone">Phone number</label>
+      <label className="formLabel" htmlFor="phone">Phone number</label>
       <input
-        className="p-1 mb-4 mt-2 bg-white rounded-2xl"
+        className="formInput"
         id="phone"
         type="string"
         name="phone"
@@ -95,7 +95,7 @@ const RegisterForm = () => {
       />
       {formik.errors.phone ? <p> {formik.errors.phone} </p> : null}
       <button
-        className="bg-green-500 rounded-2xl w-1/3 m-2 hover:bg-green-700 font-bold"
+        className="formButton"
         type="submit"
         disabled={!formik.isValid || formik.isSubmitting}
       >
