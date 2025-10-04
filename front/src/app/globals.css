@@ -23,6 +23,10 @@
   @apply font-bold text-3xl m-4 text-center;
 }
 
+.h2{
+  @apply font-bold text-2xl text-center m-3;
+}
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;

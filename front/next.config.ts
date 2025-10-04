@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
         hostname: "mac-center.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "www.apple.com",
+        port: "",
+      }
     ],
   },
 };
