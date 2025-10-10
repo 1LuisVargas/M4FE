@@ -26,8 +26,7 @@ const RegisterForm = () => {
         throw new Error("Registration failed");
       }
       else {
-        const data = await response.json();
-        console.log("Registration successful", data);
+        alert("User registered successfully!");
         router.push("/login");
       }
     },
