@@ -5,13 +5,31 @@ import {
   defaultRegisterSchema,
   registerValidationSchema,
 } from "@/validators/registerSchema";
+import { useRouter } from "next/navigation";
 
 const RegisterForm = () => {
+  const router = useRouter();
+
   const formik = useFormik<IRegisterSchema>({
     initialValues: defaultRegisterSchema,
     validationSchema: registerValidationSchema,
-    onSubmit: () => {
-      console.log("Successfully registered");
+    onSubmit: async () => {
+      const response = await fetch("http://localhost:3005/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formik.values),
+      })
+
+      if (!response.ok) {
+        throw new Error("Registration failed");
+      }
+      else {
+        const data = await response.json();
+        console.log("Registration successful", data);
+        router.push("/login");
+      }
     },
   });
 
