@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .form{
-  @apply w-1/4 flex flex-col text-center bg-slate-600 p-4 rounded-2xl m-4 items-center;
+  @apply flex flex-col text-center bg-slate-600 p-4 rounded-2xl m-4 items-center;
 }
 
 .formInput{
