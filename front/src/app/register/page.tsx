@@ -7,6 +7,7 @@ const register = () => {
         Register to our store
       </h1>
       <RegisterForm />
+      <p className="m-3">If you already have an account, you can login <a className="font-bold" href="/login">here</a>.</p>
     </div>
   );
 };
