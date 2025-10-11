@@ -14,30 +14,28 @@ const RegisterForm = () => {
     initialValues: defaultRegisterSchema,
     validationSchema: registerValidationSchema,
     onSubmit: async () => {
-      const response = await fetch("http://localhost:3005/users/register", {
+      fetch("http://localhost:3005/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formik.values),
-      })
-
-      if (!response.ok) {
-        throw new Error("Registration failed");
-      }
-      else {
-        alert("User registered successfully!");
-        router.push("/login");
-      }
+      }).then((response) => {
+        if (!response.ok) {
+          throw new Error("Registration failed");
+        } else {
+          alert("User registered successfully!");
+          router.push("/login");
+        }
+      });
     },
   });
 
   return (
-    <form
-      className="form"
-      onSubmit={formik.handleSubmit}
-    >
-      <label className="formLabel" htmlFor="email">Email</label>
+    <form className="form" onSubmit={formik.handleSubmit}>
+      <label className="formLabel" htmlFor="email">
+        Email
+      </label>
       <input
         className="formInput"
         id="email"
@@ -48,8 +46,12 @@ const RegisterForm = () => {
         value={formik.values.email}
         onChange={formik.handleChange}
       />
-      {formik.errors.email ? <p className="text-red-500"> {formik.errors.email} </p> : null}
-      <label className="formLabel" htmlFor="password">Password</label>
+      {formik.errors.email ? (
+        <p className="text-red-500"> {formik.errors.email} </p>
+      ) : null}
+      <label className="formLabel" htmlFor="password">
+        Password
+      </label>
       <input
         className="formInput"
         id="password"
@@ -60,8 +62,12 @@ const RegisterForm = () => {
         value={formik.values.password}
         onChange={formik.handleChange}
       />
-      {formik.errors.password ? <p className="text-red-500"> {formik.errors.password} </p> : null}
-      <label className="formLabel" htmlFor="confirmPassword">Confirm Password</label>
+      {formik.errors.password ? (
+        <p className="text-red-500"> {formik.errors.password} </p>
+      ) : null}
+      <label className="formLabel" htmlFor="confirmPassword">
+        Confirm Password
+      </label>
       <input
         className="formInput"
         id="confirmPassword"
@@ -75,7 +81,9 @@ const RegisterForm = () => {
       {formik.errors.confirmPassword ? (
         <p className="text-red-500"> {formik.errors.confirmPassword} </p>
       ) : null}
-      <label className="formLabel" htmlFor="name">Name</label>
+      <label className="formLabel" htmlFor="name">
+        Name
+      </label>
       <input
         className="formInput"
         id="name"
@@ -86,8 +94,12 @@ const RegisterForm = () => {
         value={formik.values.name}
         onChange={formik.handleChange}
       />
-      {formik.errors.name ? <p className="text-red-500"> {formik.errors.name} </p> : null}
-      <label className="formLabel" htmlFor="address">Address</label>
+      {formik.errors.name ? (
+        <p className="text-red-500"> {formik.errors.name} </p>
+      ) : null}
+      <label className="formLabel" htmlFor="address">
+        Address
+      </label>
       <input
         className="formInput"
         id="address"
@@ -98,8 +110,12 @@ const RegisterForm = () => {
         value={formik.values.address}
         onChange={formik.handleChange}
       />
-      {formik.errors.address ? <p className="text-red-500"> {formik.errors.address} </p> : null}
-      <label className="formLabel" htmlFor="phone">Phone number</label>
+      {formik.errors.address ? (
+        <p className="text-red-500"> {formik.errors.address} </p>
+      ) : null}
+      <label className="formLabel" htmlFor="phone">
+        Phone number
+      </label>
       <input
         className="formInput"
         id="phone"
@@ -110,7 +126,9 @@ const RegisterForm = () => {
         value={formik.values.phone}
         onChange={formik.handleChange}
       />
-      {formik.errors.phone ? <p className="text-red-500"> {formik.errors.phone} </p> : null}
+      {formik.errors.phone ? (
+        <p className="text-red-500"> {formik.errors.phone} </p>
+      ) : null}
       <button
         className="formButton"
         type="submit"

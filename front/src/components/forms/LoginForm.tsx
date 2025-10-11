@@ -6,21 +6,42 @@ import {
   defaultLoginSchema,
 } from "@/validators/loginSchema";
 import { useFormik } from "formik";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const router = useRouter();
+
   const formik = useFormik<ILoginSchema>({
     initialValues: defaultLoginSchema,
     validationSchema: loginValidationSchema,
-    onSubmit: () => {
-      console.log("Successful login");
+    onSubmit: async () => {
+      fetch("http://localhost:3005/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formik.values),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Login failed");
+          } else {
+            alert("User logged in successfully!");
+            response.json().then((data) => {
+              localStorage.setItem("token", data.token);
+            })
+            router.push("/dashboard");
+          }
+        })
+        .catch((error) => {
+          alert("Login failed");
+          console.log(error);
+        });
     },
   });
 
   return (
-    <form
-      className="form"
-      onSubmit={formik.handleSubmit}
-    >
+    <form className="form" onSubmit={formik.handleSubmit}>
       <label className="formLabel" htmlFor="email">
         Email
       </label>
