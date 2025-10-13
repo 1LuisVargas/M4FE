@@ -36,18 +36,24 @@ const NavBar = () => {
           <Link href={NavItems.CART}>Cart</Link>
         </li>
         {isAuthenticated ? (
-          <li className="font-bold">
-            <button
-              onClick={() => {
-                localStorage.removeItem("token");
-                setIsAuthenticated(false);
-                window.dispatchEvent(new Event("onAuthChange"));
-                router.push("/");
-              }}
-            >
-              Logout
-            </button>
-          </li>
+          <ul className="flex gap-4">
+            <li className="font-bold">
+              <button>My profile</button>
+              {/* Empty button since we don't have a profile route on the backend */}
+            </li>
+            <li className="font-bold">
+              <button
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  setIsAuthenticated(false);
+                  window.dispatchEvent(new Event("onAuthChange"));
+                  router.push("/");
+                }}
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
         ) : (
           <li className="font-bold">
             <Link href={NavItems.LOGIN}>Login</Link>
