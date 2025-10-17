@@ -2,26 +2,12 @@
 
 import Link from "next/link";
 import NavItems from "@/helpers/NavBarItems";
-import { useState, useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 const NavBar = () => {
   const router = useRouter();
-  const pathname = usePathname();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const readToken = () => setIsAuthenticated(!!localStorage.getItem("token"));
-    readToken();
-    window.addEventListener("storage", readToken);
-    const onAuthChange = () => readToken();
-    window.addEventListener("onAuthChange", onAuthChange);
-
-    return () => {
-      window.removeEventListener("storage", readToken);
-      window.removeEventListener("onAuthChange", onAuthChange);
-    };
-  }, [pathname]);
+  const { isAuthenticated, logout } = useAuth();
 
   return (
     <nav className="p-4 bg-slate-600">
@@ -38,20 +24,11 @@ const NavBar = () => {
         {isAuthenticated ? (
           <ul className="flex gap-4">
             <li className="font-bold">
-              <button>My profile</button>
-              {/* Empty button since we don't have a profile route on the backend */}
+              {" "}
+              <Link href={NavItems.DASHBOARD}>Profile</Link>
             </li>
             <li className="font-bold">
-              <button
-                onClick={() => {
-                  localStorage.removeItem("token");
-                  setIsAuthenticated(false);
-                  window.dispatchEvent(new Event("onAuthChange"));
-                  router.push("/");
-                }}
-              >
-                Logout
-              </button>
+              <Link href={NavItems.HOME} onClick={logout}>Logout</Link>
             </li>
           </ul>
         ) : (

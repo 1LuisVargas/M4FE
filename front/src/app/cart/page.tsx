@@ -1,8 +1,10 @@
+import { RequireAuth } from "@/components/RequireAuth";
+
 const cart = () => {
     return (
-        <div>
+        <RequireAuth>
             <h1 className="h1">This is the cart page</h1>
-        </div>
+        </RequireAuth>
     );
 }
 

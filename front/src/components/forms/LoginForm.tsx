@@ -7,9 +7,11 @@ import {
 } from "@/validators/loginSchema";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 const LoginForm = () => {
   const router = useRouter();
+  const { login } = useAuth();
 
   const formik = useFormik<ILoginSchema>({
     initialValues: defaultLoginSchema,
@@ -28,9 +30,7 @@ const LoginForm = () => {
           throw new Error("Login failed");
         }
         const data = await res.json();
-        localStorage.setItem("token", data.token);
-        window.dispatchEvent(new Event("onAuthChange"));
-        alert("User logged in successfully!");
+        login(data.token);
         router.push("/dashboard");
       } catch (error) {
         alert("Login failed");
