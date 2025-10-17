@@ -13,12 +13,12 @@ interface IProduct {
 
 const productsToPreLoad: IProduct[] = [
   {
-    name: "iPhone 11",
-    price: 699,
+    name: "iPhone 17",
+    price: 799,
     description:
-      "Experience power and elegance with the iPhone 11: capture stunning moments with its dual-camera system, enjoy exceptional performance, and immerse yourself in a brilliant Liquid Retina display. Discover a world of possibilities in the palm of your hand!",
+      "Even more delightful. Even more durable.",
     image:
-      "https://www.apple.com/v/iphone-11/a/images/meta/og__f2j3dwkzna2u.png",
+      "https://www.apple.com/v/iphone-17/c/images/overview/contrast/iphone_17__ck7zzemcw37m_medium.jpg",
     categoryId: 1,
     stock: 10,
   },
@@ -28,37 +28,37 @@ const productsToPreLoad: IProduct[] = [
     description:
       "Embrace efficiency and sophistication with the MacBook Air: lightweight design meets powerful performance, stunning Retina display brings your work to life, and all-day battery life keeps you productive wherever you go. Elevate your computing experience with the MacBook Air.",
     image:
-      "https://www.apple.com/v/macbook-air/a/images/meta/og__d5k62k8b4qka.png",
+      "https://www.apple.com/v/macbook-air/w/images/overview/routers/compare_mba_13_15__caznvrb61zyu_medium.png",
     categoryId: 2,
     stock: 10,
   },
   {
     name: "iPad Pro",
-    price: 799,
+    price: 999,
     description:
-      "Unleash your creativity and productivity with the iPad Pro: powerful performance, stunning Liquid Retina display, and all-day battery life make the iPad Pro the perfect tool for work and play. Transform your ideas into reality with the iPad Pro.",
+      "The ultimate iPad experience with the most advanced technology.",
     image:
-      "https://www.apple.com/v/ipad-pro/a/images/meta/og__d8m6x7smkntm.png",
+      "https://www.apple.com/v/ipad-pro/au/images/overview/contrast/product-tile/ipad_pro__ea93uc0cnvsm_medium.jpg",
     categoryId: 3,
     stock: 10,
   },
   {
-    name: "Apple Watch Series 6",
+    name: "Apple Watch Series 11",
     price: 399,
     description:
       "Stay connected and healthy with the Apple Watch Series 6: track your workouts, monitor your health, and stay in touch with the people and information you care about most. Experience the future of health and wellness with the Apple Watch Series 6.",
     image:
-      "https://www.apple.com/v/apple-watch-series-6/a/images/meta/og__c1zv8c8n7q06.png",
+      "https://www.apple.com/v/apple-watch-series-11/b/images/overview/contrast/contrast_s11__dkui1dgfuwcy_medium.png",
     categoryId: 4,
     stock: 10,
   },
   {
-    name: "AirPods Pro",
+    name: "AirPods Pro 3",
     price: 249,
     description:
-      "Immerse yourself in sound with the AirPods Pro: active noise cancellation, transparency mode, and customizable fit make the AirPods Pro the perfect companion for music, calls, and everything in between. Elevate your audio experience with the AirPods Pro.",
+      "The world’s best in-ear Active Noise Cancellation, with heart rate sensing during workouts.",
     image:
-      "https://www.apple.com/v/airpods-pro/a/images/meta/og__c1zv8c8n7q06.png",
+      "https://www.apple.com/v/airpods-pro/q/images/overview/contrast/explore_airpods_pro_3_open__e4dxk8zpalkm_medium.jpg",
     categoryId: 5,
     stock: 10,
   },
@@ -66,9 +66,9 @@ const productsToPreLoad: IProduct[] = [
     name: "HomePod mini",
     price: 99,
     description:
-      "Elevate your home audio experience with the HomePod mini: immersive sound, intelligent assistant, and smart home hub make the HomePod mini the perfect addition to your home. Enjoy a world of music, news, and more with the HomePod mini.",
+      "Surprising sound for its size",
     image:
-      "https://www.apple.com/v/homepod-mini/a/images/meta/og__d5k62k8b4qka.png",
+      "https://www.apple.com/v/homepod/shared/compare/b/images/overview/compare/homepodmini__b3h6nqh448dy_medium.jpg",
     categoryId: 6,
     stock: 10,
   },
