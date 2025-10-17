@@ -2,11 +2,9 @@
 
 import Link from "next/link";
 import NavItems from "@/helpers/NavBarItems";
-import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 const NavBar = () => {
-  const router = useRouter();
   const { isAuthenticated, logout } = useAuth();
 
   return (
