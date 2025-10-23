@@ -8,6 +8,12 @@ import {
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import type { User } from "@/context/AuthContext";
+
+type AuthResponse = {
+  token: string;
+  user: User;
+};
 
 const LoginForm = () => {
   const router = useRouter();
@@ -29,8 +35,8 @@ const LoginForm = () => {
           alert("Login failed");
           throw new Error("Login failed");
         }
-        const data = await res.json();
-        login(data.token);
+        const data: AuthResponse = await res.json();
+        login(data.token, data.user);
         router.push("/dashboard");
       } catch (error) {
         alert("Login failed");

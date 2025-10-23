@@ -3,9 +3,16 @@
 import Link from "next/link";
 import NavItems from "@/helpers/NavBarItems";
 import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 const NavBar = () => {
   const { isAuthenticated, logout } = useAuth();
+  const router = useRouter();
+
+  const logoutHandler = () => {
+    logout();
+    router.push("/login");
+  }
 
   return (
     <nav className="p-4 bg-slate-600">
@@ -20,17 +27,19 @@ const NavBar = () => {
           <Link href={NavItems.CART}>Cart</Link>
         </li>
         {isAuthenticated ? (
-          <ul className="flex gap-4">
+          <>
             <li className="font-bold">
               {" "}
-              <Link href={NavItems.DASHBOARD}>Profile</Link>
+              <Link href={NavItems.PROFILE}>Profile</Link>
             </li>
             <li className="font-bold">
-              <Link href={NavItems.HOME} onClick={logout}>Logout</Link>
+              <button onClick={logoutHandler} className="font-bold hover:underline">
+                Logout
+              </button>
             </li>
-          </ul>
+          </>
         ) : (
-          <li className="font-bold">
+          <li className="font-bold hover:underline">
             <Link href={NavItems.LOGIN}>Login</Link>
           </li>
         )}
