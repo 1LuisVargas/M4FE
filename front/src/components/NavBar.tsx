@@ -12,7 +12,7 @@ const NavBar = () => {
   const logoutHandler = () => {
     logout();
     router.push("/login");
-  }
+  };
 
   return (
     <nav className="p-4 bg-slate-600">
@@ -23,17 +23,20 @@ const NavBar = () => {
         <li className="font-bold">
           <Link href={NavItems.DASHBOARD}>Dashboard</Link>
         </li>
-        <li className="font-bold">
-          <Link href={NavItems.CART}>Cart</Link>
-        </li>
         {isAuthenticated ? (
           <>
+            <li className="font-bold">
+              <Link href={NavItems.CART}>Cart</Link>
+            </li>
             <li className="font-bold">
               {" "}
               <Link href={NavItems.PROFILE}>Profile</Link>
             </li>
             <li className="font-bold">
-              <button onClick={logoutHandler} className="font-bold hover:underline">
+              <button
+                onClick={logoutHandler}
+                className="font-bold hover:underline"
+              >
                 Logout
               </button>
             </li>
