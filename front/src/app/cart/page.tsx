@@ -1,11 +1,20 @@
-import { RequireAuth } from "@/components/RequireAuth";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 
-const cart = () => {
+const Cart = () => {
+    const { isAuthenticated } = useAuth();
+    const router = useRouter();
+
     return (
-        <RequireAuth>
-            <h1 className="h1">This is the cart page</h1>
-        </RequireAuth>
-    );
+        <div>
+            <h1>Cart</h1>
+            {isAuthenticated ? (
+                <p>Cart content</p>
+            ) : (
+                <p>Please <button onClick={() => router.push("/login")} className="font-bold">login</button> to see your cart</p>
+            )}
+        </div>
+    )
 }
 
-export default cart;
+export default Cart;

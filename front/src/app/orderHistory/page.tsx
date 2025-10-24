@@ -1,10 +1,17 @@
-import { RequireAuth } from "@/components/RequireAuth";
+import { useAuth } from "@/context/AuthContext";
 
-const orderHistory = () => {
+const OrderHistory = () => {
+  const { isAuthenticated } = useAuth();
+
   return (
-    <RequireAuth>
-      <h1 className="h1">Order History:</h1>
-    </RequireAuth>
+    <div>
+      <h1>Order History</h1>
+      {isAuthenticated ? (
+        <p>Order history content</p>
+      ) : (
+        <p>Please <button className="font-bold">login</button> to see your order history</p>
+      )}
+    </div>
   );
 };
-export default orderHistory;
+export default OrderHistory;
