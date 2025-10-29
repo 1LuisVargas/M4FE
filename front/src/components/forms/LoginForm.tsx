@@ -8,11 +8,11 @@ import {
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import type { User } from "@/context/AuthContext";
+import IUser from "@/interfaces/IUser";
 
 type AuthResponse = {
   token: string;
-  user: User;
+  user: IUser;
 };
 
 const LoginForm = () => {
