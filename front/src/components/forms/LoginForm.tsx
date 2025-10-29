@@ -9,7 +9,7 @@ import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import IUser from "@/interfaces/IUser";
-import loginUserService from "@/services/auth.services";
+import { loginUserService } from "@/services/auth.services";
 
 type AuthResponse = {
   token: string;
@@ -31,7 +31,7 @@ const LoginForm = () => {
           router.push("/");
         })
       } catch (error) {
-        alert("Error logging in");
+        alert(`${error}`);
         console.error(error);
       }
     },
