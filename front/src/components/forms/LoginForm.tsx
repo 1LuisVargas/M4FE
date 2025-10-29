@@ -9,6 +9,7 @@ import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import IUser from "@/interfaces/IUser";
+import loginUserService from "@/services/auth.services";
 
 type AuthResponse = {
   token: string;
@@ -24,23 +25,14 @@ const LoginForm = () => {
     validationSchema: loginValidationSchema,
     onSubmit: async () => {
       try {
-        const res = await fetch("http://localhost:3005/users/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formik.values),
-        });
-        if (!res.ok) {
-          alert("Login failed");
-          throw new Error("Login failed");
-        }
-        const data: AuthResponse = await res.json();
-        login(data.token, data.user);
-        router.push("/dashboard");
+        await loginUserService(formik.values).then((response: AuthResponse) => {
+          login(response.token, response.user);
+          alert("User logged in successfully!");
+          router.push("/");
+        })
       } catch (error) {
-        alert("Login failed");
-        console.log(error);
+        alert("Error logging in");
+        console.error(error);
       }
     },
   });
