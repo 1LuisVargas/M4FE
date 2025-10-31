@@ -7,7 +7,7 @@ import {
 } from "@/validators/loginSchema";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/contexts/AuthContext";
 import IUser from "@/interfaces/IUser";
 import { loginUserService } from "@/services/auth.services";
 

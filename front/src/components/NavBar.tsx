@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import NavItems from "@/helpers/NavBarItems";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
 
 const NavBar = () => {
