@@ -1,6 +1,7 @@
 import IProduct from "@/interfaces/IProduct";
 import { getProductById } from "@/services/products.services";
 import Image from "next/image";
+import AddToCart from "@/components/AddToCart";
 
 const ProductDetails = async ({
   params,
@@ -25,6 +26,7 @@ const ProductDetails = async ({
         />
         <p className="text-2xl">{product.description}</p>
         <p className="text-2xl">{product.price}</p>
+        <AddToCart product={product}></AddToCart>
       </div>
     );
   } catch (error) { //TODO: This not working as intended. Pending further review
