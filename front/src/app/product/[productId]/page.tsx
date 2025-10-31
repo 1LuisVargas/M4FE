@@ -2,17 +2,16 @@ import IProduct from "@/interfaces/IProduct";
 import { getProductById } from "@/services/products.services";
 import Image from "next/image";
 
-interface ProductDetailsProps {
-  params: { productId: string };
-}
-
-const ProductDetails = ({ params }: ProductDetailsProps) => {
+const ProductDetails = ({
+  params,
+}: {
+  params: { [productId: string]: string }; // Defining the type of params
+}) => {
   const { productId } = params;
   let product = {} as IProduct;
-  
+
   try {
     product = getProductById(productId);
-    
   } catch (error) {
     console.log(error);
   }

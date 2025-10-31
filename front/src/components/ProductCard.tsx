@@ -1,11 +1,7 @@
 import IProduct from "@/interfaces/IProduct";
 import Image from "next/image";
 
-interface IProductCardProps {
-  product: IProduct;
-}
-
-export default function ProductCard({ product }: IProductCardProps) {
+export default function ProductCard({ product }: { product: IProduct }) {
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-center text-xl">{product.name}</h2>
