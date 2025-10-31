@@ -1,7 +1,7 @@
 'use client';
 
 import IProduct from "@/interfaces/IProduct";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 import { useAuth } from "./AuthContext";
 import { useRouter } from "next/navigation";
 
@@ -76,3 +76,11 @@ export const CartContextProvider = ({ children }: { children: React.ReactNode })
         </CartContext.Provider>
     );
 };
+
+export function useCart () {
+    const context = useContext(CartContext);
+    if (context === undefined) {
+        throw new Error("useCart must be used within a CartContextProvider");
+    }
+    return context;
+}
