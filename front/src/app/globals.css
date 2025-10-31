@@ -19,6 +19,13 @@
   @apply hover:bg-green-700 cursor-pointer;
 }
 
+.removeButton{
+  @apply bg-red-500 rounded-2xl px-3 m-1 font-bold;
+}
+.removeButton:hover{
+  @apply hover:bg-red-700 cursor-pointer;
+}
+
 .h1{
   @apply font-bold text-3xl m-4 text-center;
 }

@@ -26,7 +26,15 @@ export const CartContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [cart, setCart] = useState<IProduct[]>([]);
+  const [cart, setCart] = useState<IProduct[]>(() => {
+    if (typeof window !== "undefined") {
+      const storedCart = localStorage.getItem(CART_KEY);
+      if (storedCart) {
+        return JSON.parse(storedCart);
+      }
+    }
+    return [];
+  });
   const { isAuthenticated } = useAuth();
   const router = useRouter();
 
