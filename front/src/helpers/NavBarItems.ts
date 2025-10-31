@@ -1,6 +1,6 @@
 enum NavItems {
     HOME = "/home",
-    DASHBOARD = "/dashboard",
+    ORDERS = "/orderHistory",
     CART = "/cart",
     LOGIN = "/login",
     PROFILE = "/profile",

@@ -21,7 +21,7 @@ const NavBar = () => {
           <Link href={NavItems.HOME}>Home</Link>
         </li>
         <li className="font-bold">
-          <Link href={NavItems.DASHBOARD}>Dashboard</Link>
+          <Link href={NavItems.ORDERS}>Order History</Link>
         </li>
         {isAuthenticated ? (
           <>
