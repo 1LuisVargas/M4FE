@@ -1,5 +1,6 @@
 import IProduct from "@/interfaces/IProduct";
 import Image from "next/image";
+import AddToCart from "./AddToCart";
 
 export default function ProductCard({ product }: { product: IProduct }) {
   return (
@@ -14,6 +15,7 @@ export default function ProductCard({ product }: { product: IProduct }) {
       />
       <p className="text-s text-center">{product.description}</p>
       <p className="p-3 text-s text-center">{product.price}</p>
+      <AddToCart product={product}></AddToCart>
     </div>
   );
 }

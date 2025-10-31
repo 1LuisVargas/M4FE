@@ -61,7 +61,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setToken(localStorage.getItem(TOKEN_KEY));
     setUser(safeParse<IUser>(localStorage.getItem(USER_KEY)));
   }, [pathname]);
-  
+
   // Setting the token and user in localStorage
   const login = (t: string, u: IUser) => {
     localStorage.setItem(TOKEN_KEY, t);
