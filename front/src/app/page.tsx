@@ -21,7 +21,7 @@ export default async function Home() {
     <div>
       <h1 className="h1">Store page</h1>
       <h2 className="h2">Products</h2>
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-3">
+      <section className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
         {products.map((product: IProduct) => (
           <ProductCard key={product.id} product={product} />
         ))}
