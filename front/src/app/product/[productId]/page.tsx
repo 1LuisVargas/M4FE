@@ -1,22 +1,23 @@
-"use client";
 import IProduct from "@/interfaces/IProduct";
 import { getProductById } from "@/services/products.services";
-import { useParams } from "next/navigation";
-import { useEffect, useState} from "react";
 import Image from "next/image";
 
-const ProductDetails = () => {
-  const params = useParams();
-  const [product, setProduct] = useState<IProduct>();
+interface ProductDetailsProps {
+  params: { productId: string };
+}
 
-  useEffect(() => {
-    const fetchProductById = async () => {
-      const temporaryProduct = await getProductById(params.productId as string);
-      setProduct(temporaryProduct);
-    };
+const ProductDetails = ({ params }: ProductDetailsProps) => {
+  const { productId } = params;
+  let product = {} as IProduct;
+  
+  try {
+    product = getProductById(productId);
+    
+  } catch (error) {
+    console.log(error);
+  }
 
-    fetchProductById();
-  }, [params.productId]);
+  //TODO: FINISH VIEWING THE 6TH CLASS
 
   return (
     <div className="flex items-center flex-col">

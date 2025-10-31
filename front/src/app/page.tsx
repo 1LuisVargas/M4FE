@@ -3,7 +3,19 @@ import IProduct from "@/interfaces/IProduct";
 import { getAllProducts } from "@/services/products.services";
 
 export default async function Home() {
-  const products = await getAllProducts();
+  let products: IProduct[] = [];
+
+  try {
+    products = await getAllProducts();
+  } catch (error) {
+    alert(`${error}`);
+    return (
+      <div>
+        <h1 className="h1">Store page</h1>
+        <h2 className="h2">Failed to get the products</h2>
+      </div>
+    );
+  }
 
   return (
     <div>
