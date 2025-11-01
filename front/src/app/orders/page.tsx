@@ -25,46 +25,33 @@ const OrderHistory = () => {
 
   return (
     <div>
-      <h1 className="h1">Order History</h1>
-      {isAuthenticated ? (
-        <div>
-          {orders.length > 0 ? (
-            orders.map((order: IOrder) => (
-              <div key={order.id}>
-                <p>Order ID: {order.id}</p>
-                <p>Order Date: {order.date.toDateString()}</p>
-                <p>
-                  Order Total:{" "}
-                  {order.products.reduce(
-                    (total, product) => total + product.price,
-                    0
-                  )}
-                </p>
-              </div>
-            ))
-          ) : (
-            <div className="flex flex-col text-center">
-              <h2 className="h2">No orders found</h2>
-              <p>
-                Click{" "}
-                <button className="font-bold" onClick={() => router.push("/")}>
-                  here
-                </button>{" "}
-                to go back to the store and <span className="font-bold">keep on purchasing!</span>
-              </p>
-            </div>
-          )}
+      {orders.length > 0 ? (
+        <div className="flex flex-col text-center">
+          <h2 className="h2">Order History</h2>
+          <p>
+            Click{" "}
+            <button className="font-bold" onClick={() => router.push("/")}>
+              here
+            </button>{" "}
+            to go back to the store and{" "}
+            <span className="font-bold">keep on purchasing!</span>
+          </p>
         </div>
       ) : (
-        <p>
-          Please{" "}
-          <button className="font-bold" onClick={() => router.push("/login")}>
-            login
-          </button>{" "}
-          to see your order history
-        </p>
+        <div className="flex flex-col text-center">
+          <h2 className="h2">No orders found</h2>
+          <p>
+            Click{" "}
+            <button className="font-bold cursor-pointer" onClick={() => router.push("/")}>
+              here
+            </button>{" "}
+            to go back to the store and{" "}
+            <span className="font-bold">keep on purchasing!</span>
+          </p>
+        </div>
       )}
     </div>
   );
 };
+
 export default OrderHistory;
