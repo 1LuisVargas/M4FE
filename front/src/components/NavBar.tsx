@@ -35,7 +35,7 @@ const NavBar = () => {
             <li className="font-bold">
               <button
                 onClick={logoutHandler}
-                className="font-bold hover:underline"
+                className="font-bold hover:underline cursor-pointer"
               >
                 Logout
               </button>
