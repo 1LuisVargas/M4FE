@@ -10,14 +10,13 @@ const Cart = () => {
   const { isAuthenticated, token } = useAuth();
   const router = useRouter();
   const cart = useCart();
-
-  if (!isAuthenticated) return null;
   if (!token) return <p>Loading...</p>;
 
   return (
     <div>
       <h1 className="h1">Cart</h1>
       {isAuthenticated ? (
+        cart.cart.length > 0 ? (
         <div className="flex flex-col items-center">
           <h2 className="h2">Your cart:</h2>
           <section className="grid grid-cols-1 gap-3 bg-slate-600 p-4 rounded-2xl m-4">
@@ -53,6 +52,9 @@ const Cart = () => {
             Complete purchase!
           </button>
         </div>
+        ) : (
+          <p className="font-bold text-center">Your cart is empty. Click <button className="cursor-pointer" onClick={() => router.push("/")}>here</button> to go back to the store and start buying!</p>
+        )
       ) : (
         <p>
           Please{" "}
