@@ -6,7 +6,7 @@ import IOrder from "@/interfaces/IOrder";
 import { useEffect, useState } from "react";
 
 const OrderHistory = () => {
-  const { isAuthenticated, token} = useAuth();
+  const { isAuthenticated, token } = useAuth();
   const router = useRouter();
 
   const [orders, setOrders] = useState<IOrder[]>([]);
@@ -29,20 +29,39 @@ const OrderHistory = () => {
   if (!token) return <p>Loading...</p>;
 
   return (
-    <div className="flex flex-col items-center bg-slate-600 p-4 rounded-2xl m-4 w-1/2 mx-auto">
+    <div className="flex flex-col items-center">
       <h1 className="h1">Order history:</h1>
-      {orders.map((order: IOrder) => (
-        <div className="flex flex-row items-center bg-blue-400 m-1 p-2 rounded-2xl" key={order.id}>
-          <p className="mx-3 font-bold">{order.status.toUpperCase()}</p>
-          <p className="mx-3 font-bold">{order.date.toString().split("T")[0]}</p>
-          <button
-            className="mx-3 font-bold"
-            onClick={() => router.push(`/orders/${order.id}`)}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1 lg:items-center">
+        {orders.map((order: IOrder) => (
+          <div
+            className="flex flex-col lg:flex-row bg-slate-600 p-4 rounded-2xl m-2 items-center"
+            key={order.id}
           >
-            View details
-          </button>
-        </div>
-      ))}
+            <p className="mx-3 font-bold">Order: {order.id}</p>
+            <p className="mx-3 font-bold">{order.status.toUpperCase()}</p>
+            <p className="mx-3 font-bold">
+              {order.date.toString().split("T")[0]}
+            </p>
+            <p className="mx-3 font-bold">
+              Products ordered: {order.products.length}
+            </p>
+            <p className="mx-3 font-bold">
+              Total price:{" "}
+              {order.products.reduce(
+                (order, product) => order + product.price,
+                0
+              )}
+              $
+            </p>
+            <button
+              className="formButton"
+              onClick={() => router.push(`/orders/${order.id}`)}
+            >
+              View details
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
