@@ -30,3 +30,9 @@ export const createOrder = async (token: string, products: number[]) => {
   const order: IOrder = await data.json();
   return order;
 }
+
+export const getOrderById = async (orderId: number, token: string) => {
+  const orders = await getOrdersByUserId(token);
+  const order = orders.find((order: IOrder) => order.id === orderId);
+  return order;
+}

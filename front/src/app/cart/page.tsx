@@ -42,6 +42,9 @@ const Cart = () => {
             onClick={() => {
               try {
                 createOrder(token, cart.getIds());
+                cart.clearCart();
+                alert("Order completed successfully");
+                router.push("/orders");
               } catch (error) {
                 alert(`${error}`);
               }

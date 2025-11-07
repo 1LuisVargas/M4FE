@@ -1,6 +1,7 @@
 import IProduct from "@/interfaces/IProduct";
 import { getProductById } from "@/services/products.services";
 import ProductCard from "@/components/ProductCard";
+import { notFound } from "next/navigation";
 
 const ProductDetails = async ({
   params,
@@ -17,9 +18,9 @@ const ProductDetails = async ({
         <ProductCard product={product} />
       </div>
     );
-  } catch (error) { //TODO: This not working as intended. Pending further review
-    alert(error);
+  } catch (error) {
     console.log(error);
+    notFound();
   }
 };
 

@@ -29,7 +29,7 @@ const OrderHistory = () => {
   if (!token) return <p>Loading...</p>;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center my-10">
       <h1 className="h1">Order history:</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-1 lg:items-center">
         {orders.map((order: IOrder) => (
