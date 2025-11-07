@@ -1,7 +1,12 @@
 import IOrder from "../interfaces/IOrder";
 
-export const getOrdersByUserId = async (userId: number) => {
-  const data = await fetch(`http://localhost:3005/users/orders/${userId}`);
+export const getOrdersByUserId = async (token: string, ) => {
+  const data = await fetch(`http://localhost:3005/users/orders/`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  })
   if (!data.ok) {
     throw new Error(`Orders ${data.statusText}`);
   }
