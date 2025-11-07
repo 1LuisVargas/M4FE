@@ -4,11 +4,15 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/contexts/CartContext";
 import IProduct from "@/interfaces/IProduct";
+import { createOrder } from "@/services/orders.services";
 
 const Cart = () => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, token } = useAuth();
   const router = useRouter();
   const cart = useCart();
+
+  if (!isAuthenticated) return null;
+  if (!token) return <p>Loading...</p>;
 
   return (
     <div>
@@ -29,15 +33,21 @@ const Cart = () => {
                 </button>
               </div>
             ))}
-            <p className="mx-3 font-bold text-xl">
+            <p className="mx-3 font-bold text-xl text-center">
               Total: ${cart.getTotalPrice()}
             </p>
           </section>
           <button
             className="formButton"
-            onClick={() => router.push("/checkout")}
+            onClick={() => {
+              try {
+                createOrder(token, cart.getIds());
+              } catch (error) {
+                alert(`${error}`);
+              }
+            }}
           >
-            Checkout
+            Complete purchase!
           </button>
         </div>
       ) : (

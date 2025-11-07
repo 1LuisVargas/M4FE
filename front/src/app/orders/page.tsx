@@ -1,7 +1,7 @@
 "use client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
-import getOrdersByUserId from "@/services/orders.services";
+import { getOrdersByUserId } from "@/services/orders.services";
 import IOrder from "@/interfaces/IOrder";
 
 const OrderHistory = () => {
@@ -30,7 +30,7 @@ const OrderHistory = () => {
           <h2 className="h2">Order History</h2>
           <p>
             Click{" "}
-            <button className="font-bold" onClick={() => router.push("/")}>
+            <button className="font-bold cursor-pointer" onClick={() => router.push("/")}>
               here
             </button>{" "}
             to go back to the store and{" "}
