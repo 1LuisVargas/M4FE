@@ -16,11 +16,11 @@ const Cart = () => {
     <div>
       <h1 className="h1">Cart</h1>
       {isAuthenticated ? (
-        cart.cart.length > 0 ? (
+        cart.items.length > 0 ? (
         <div className="flex flex-col items-center">
           <h2 className="h2">Your cart:</h2>
           <section className="grid grid-cols-1 gap-3 bg-slate-600 p-4 rounded-2xl m-4">
-            {cart.cart.map((product: IProduct) => (
+            {cart.items.map((product: IProduct) => (
               <div className="grid grid-cols-3 items-center" key={product.id}>
                 <p className="mx-3 font-bold">{product.name}</p>
                 <p className="mx-3 font-bold">${product.price}</p>

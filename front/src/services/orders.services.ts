@@ -1,7 +1,7 @@
 import IOrder from "../interfaces/IOrder";
 
 export const getOrdersByUserId = async (token: string, ) => {
-  const data = await fetch(`http://localhost:3005/users/orders/`, {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/orders/`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
@@ -15,7 +15,7 @@ export const getOrdersByUserId = async (token: string, ) => {
 };
 
 export const createOrder = async (token: string, products: number[]) => {
-  const data = await fetch("http://localhost:3005/orders", {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

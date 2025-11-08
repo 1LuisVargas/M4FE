@@ -1,7 +1,7 @@
 import IProduct from "@/interfaces/IProduct";
 
 export const getAllProducts = async () => { 
-  const data = await fetch("http://localhost:3005/products");
+  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`);
   if (!data.ok) {
     throw new Error(`Error fetching products: ${data.statusText}`);
   }

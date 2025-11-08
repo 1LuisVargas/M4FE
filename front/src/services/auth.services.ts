@@ -6,7 +6,7 @@ export const registerUserService = async (credentials: {
   address: string;
   phone: string;
 }) => {
-  const response = await fetch("http://localhost:3005/users/register", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -25,7 +25,7 @@ export const loginUserService = async (credentials: {
   email: string;
   password: string;
 }) => {
-  const response = await fetch("http://localhost:3005/users/login", {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
