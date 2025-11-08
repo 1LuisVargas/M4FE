@@ -15,8 +15,8 @@ const OrderHistory = () => {
     const fetchOrders = async () => {
       if (isAuthenticated && token) {
         try {
-          const orders = await getOrdersByUserId(token);
-          setOrders(orders);
+          const fetchedOrders = await getOrdersByUserId(token);
+          setOrders(fetchedOrders);
         } catch (error) {
           console.error(error);
         }

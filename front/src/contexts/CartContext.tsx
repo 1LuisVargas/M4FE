@@ -6,7 +6,7 @@ import { useAuth } from "./AuthContext";
 import { useRouter } from "next/navigation";
 
 type CartContextType = {
-  cart: IProduct[];
+  items: IProduct[];
   addToCart: (product: IProduct) => void;
   removeFromCart: (productId: number) => void;
   clearCart: () => void;
@@ -26,7 +26,7 @@ export const CartContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [cart, setCart] = useState<IProduct[]>(() => {
+  const [items, setItems] = useState<IProduct[]>(() => {
     if (typeof window !== "undefined") {
       const storedCart = localStorage.getItem(CART_KEY);
       if (storedCart) {
@@ -41,13 +41,13 @@ export const CartContextProvider = ({
   useEffect(() => {
     const storedCart = localStorage.getItem(CART_KEY);
     if (storedCart) {
-      setCart(JSON.parse(storedCart));
+      setItems(JSON.parse(storedCart));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-  }, [cart]);
+    localStorage.setItem(CART_KEY, JSON.stringify(items));
+  }, [items]);
 
   const addToCart = (product: IProduct) => {
     if (!isAuthenticated) {
@@ -56,7 +56,7 @@ export const CartContextProvider = ({
       return;
     }
 
-    const existingProduct = cart.find((item) => item.id === product.id);
+    const existingProduct = items.find((item) => item.id === product.id);
     if (existingProduct) {
       alert(
         "Product already in cart. You can't have two of the same item in the cart."
@@ -64,33 +64,33 @@ export const CartContextProvider = ({
       return;
     }
 
-    setCart((prev) => [...prev, product]);
+    setItems((prev) => [...prev, product]);
   };
 
   const removeFromCart = (productId: number) => {
-    setCart(cart.filter((item) => item.id !== productId));
+    setItems(items.filter((item) => item.id !== productId));
   };
 
   const clearCart = () => {
-    setCart([]);
+    setItems([]);
   };
 
   const getTotalPrice = () => {
-    return cart.reduce((total, item) => total + item.price, 0);
+    return items.reduce((total, item) => total + item.price, 0);
   };
 
   const getTotalQuantity = () => {
-    return cart.length;
+    return items.length;
   };
 
   const getIds = () => {
-    return cart.map((item) => item.id);
+    return items.map((item) => item.id);
   };
 
   return (
     <CartContext.Provider
       value={{
-        cart,
+        items,
         addToCart,
         removeFromCart,
         clearCart,
