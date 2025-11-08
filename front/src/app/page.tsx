@@ -8,7 +8,7 @@ export default async function Home() {
   try {
     products = await getAllProducts();
   } catch (error) {
-    alert(`${error}`);
+    console.log(error);
     return (
       <div>
         <h1 className="h1">Store page</h1>
