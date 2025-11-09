@@ -18,7 +18,7 @@ const OrderHistory = () => {
           const fetchedOrders = await getOrdersByUserId(token);
           setOrders(fetchedOrders);
         } catch (error) {
-          console.error(error);
+          console.log(error);
         }
       }
     };
