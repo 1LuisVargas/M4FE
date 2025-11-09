@@ -20,6 +20,7 @@ export const createOrder = async (token: string, products: number[]) => {
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
+      'ngrok-skip-browser-warning': '1'
     },
     body: JSON.stringify({ products }),
   }) 
