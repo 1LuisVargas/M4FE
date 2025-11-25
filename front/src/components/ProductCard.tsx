@@ -1,7 +1,7 @@
 import IProduct from "@/interfaces/IProduct";
 import Image from "next/image";
 import AddToCart from "./AddToCart";
-import ViewDetails from "./ViewDetails";
+import ViewDetails from "./ViewProductDetails";
 
 export default function ProductCard({ product }: { product: IProduct }) {
   return (
