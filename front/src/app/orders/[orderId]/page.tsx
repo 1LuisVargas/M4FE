@@ -47,6 +47,20 @@ const OrderDetails = ({
           <p className="mx-3 font-bold">Order status:</p>
           <p className="mx-3 font-bold">{order.status}</p>
         </div>
+        <div className="flex flex-col lg:flex-row bg-slate-600 p-4 rounded-2xl m-2 items-center">
+            <p className="mx-3 font-bold">Products ordered:</p>
+            <p className="mx-3 font-bold">{order.products.length}</p>
+        </div>
+        <div className="flex flex-col lg:flex-row bg-slate-600 p-4 rounded-2xl m-2 items-center">
+            <p className="mx-3 font-bold">Total price:</p>
+            <p className="mx-3 font-bold">
+              {order.products.reduce(
+                (order, product) => order + product.price,
+                0
+              )}
+              $
+            </p>
+        </div>
       </div>
     </div>
   );
